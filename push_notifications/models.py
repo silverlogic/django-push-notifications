@@ -107,7 +107,8 @@ class APNSDeviceQuerySet(models.query.QuerySet):
 		if self:
 			from .apns import apns_send_bulk_message
 			reg_ids = list(self.filter(active=True).values_list("registration_id", flat=True))
-			return apns_send_bulk_message(registration_ids=reg_ids, alert=message, **kwargs)
+			if reg_ids:
+				return apns_send_bulk_message(registration_ids=reg_ids, alert=message, **kwargs)
 
 
 class APNSDevice(Device):
