@@ -5,4 +5,4 @@ except ImportError:
     # <Python 3.7 and lower
     import importlib_metadata
 
-__version__ = importlib_metadata.version("django-push-notifications")
+__version__ = importlib_metadata.version("baseapp-django-push-notifications")
